@@ -8,14 +8,11 @@
 
 {{-- estrutura de repetição --}}
 
-@php
-    $i = 0;
-@endphp
-
-@while ($i<=10);
-Valor atual é {{ $i }}<br>
-@php $i++ @endphp
-@endwhile
+@forelse ($frutas as $fruta)
+{{ $fruta }}<br>
+@empty
+    Array está vazia.
+@endforelse
 
 
 
