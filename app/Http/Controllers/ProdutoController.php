@@ -12,11 +12,9 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $html = "<h1> teste </h1>";
-        $nome = 'Raposo';
-        $idade = 22;
-        $frutas= ['banana','laranja','maça'];
-        return view('site.home',compact('html','idade','nome','frutas'));
+        $produtos = Produto::paginate(3);
+
+        return view('site.home',compact('produtos'));
     }
 
     /**
@@ -38,7 +36,7 @@ class ProdutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(produto $produto)
+    public function show($id)
     {
 
     }

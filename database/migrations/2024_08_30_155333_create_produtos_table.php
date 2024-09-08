@@ -11,18 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('produtos', function (Blueprint $table){
             $table->id();
             $table->string('nome');
             $table->text('descricao');
-            $table->double('preco', 10,2);
+            $table->double('preco', 10, 2);
             $table->string('slug');
             $table->string('imagem')->nullable();
-
             $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('id_categoria')->unsigned();
 
-            $table->unsignedBigInteger('id_categorias');
+            $table->unsignedBigInteger('id_regra');
+            $table->foreign('id_regra')->references('id')->on('regras')->onDelete('cascade');
+
+            // Definindo as chaves estrangeiras
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
