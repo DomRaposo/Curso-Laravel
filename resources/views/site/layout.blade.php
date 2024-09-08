@@ -12,7 +12,7 @@
    </head>
 <body>
 
-    <nav class="red">
+    <nav class="black">
         <div class="nav-wrapper container">
           <a href="#" class="brand-logo center">ProjetoBar</a>
           <ul id="nav-mobile" class="left">
