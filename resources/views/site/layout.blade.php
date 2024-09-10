@@ -13,10 +13,12 @@
 <body>
 
      <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Alcolicas</a></li>
-    <li><a href="#!">Geladas</a></li>
-    <li><a href="#!">Naturais</a></li>
+    <ul id='dropdown1' class='dropdown-content'>
+
+    @foreach ($categoriasMenu as $categoriaM )
+    <li><a href="#!">{{ $categoriaM->nome }}</a></li>
+  @endforeach
+
   </ul>
 
     <nav class="black">
