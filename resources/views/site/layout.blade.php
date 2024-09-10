@@ -12,11 +12,19 @@
    </head>
 <body>
 
+     <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">Alcolicas</a></li>
+    <li><a href="#!">Geladas</a></li>
+    <li><a href="#!">Naturais</a></li>
+  </ul>
+
     <nav class="black">
         <div class="nav-wrapper container">
           <a href="#" class="brand-logo center">ProjetoBar</a>
           <ul id="nav-mobile" class="left">
             <li><a href="">Home</a></li>
+            <li><a href="" class="dropdown-trigger" data-target='dropdown1'>Categorias<i class="material-icons right">expand_more</i></a></li>
             <li><a href="">Carrinho</a></li>
           </ul>
         </div>
@@ -26,6 +34,14 @@
 
  <!-- Compiled and minified JavaScript -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+      //inicialização DropDown
+      var elemDrop = document.querySelectorAll('.dropdown-trigger');
+    var instancesDrop = M.Dropdown.init(elemDrop, {
+        coverTrigger: false,
+        contrainWidth: false
+});
 
+</script>
 </body>
 </html>
