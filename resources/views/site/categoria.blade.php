@@ -5,6 +5,8 @@
 
 <div class="row container" style="margin-top: 40px">
 
+    <h5>Categoria: {{ $categoria->nome }} </h5>
+
     @foreach ($produtos as $produto)
     <div class="col s12 m4">
         <div class="card">
@@ -27,7 +29,6 @@
 
 <div class="row center">
     {{ $produtos->links('costum.pagination') }}
-
   </div>
 
 @endsection
