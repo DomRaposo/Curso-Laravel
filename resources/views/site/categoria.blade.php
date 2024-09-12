@@ -1,6 +1,6 @@
 @extends('site.layout')
 
-@section('title','Essa é a pag HOME')
+@section('title','Categoria')
 @section('conteudo')
 
 <div class="row container" style="margin-top: 40px">
