@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Teste1;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class Teste1Controller extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,13 +29,18 @@ class Teste1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user =$request->all();
+        $user['password'] = bcrypt($request->password);
+        $user = User::create($user);
+
+        Auth::login($user);
+        return redirect()->route('admin.dashboard');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Teste1 $teste1)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +48,7 @@ class Teste1Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Teste1 $teste1)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +56,7 @@ class Teste1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Teste1 $teste1)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +64,7 @@ class Teste1Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Teste1 $teste1)
+    public function destroy(string $id)
     {
         //
     }

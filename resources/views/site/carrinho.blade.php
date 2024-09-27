@@ -102,7 +102,18 @@
 
         <a href="{{ route('site.limparcarrinho') }}" class="btn waves-effect waves-light blue">Limpar Carrinho<i class="material-icons right">clear</i></a>
 
-        <button class="btn waves-effect waves-light green " style="margin-top: 20px" >Finalizar Pedido<i class="material-icons">check</i></button>
+        {{-- Formulário para Finalizar Pedido --}}
+    <form action="{{ route('site.finalizarpedido') }}" method="POST" style="margin-top: 20px;">
+
+        @csrf
+        <input hidden name="itens" value="{{ $itens }}"> {{-- Enviando os itens do carrinho --}}
+
+        <button type="submit" class="btn waves-effect waves-light green">
+            Finalizar Pedido<i class="material-icons">check</i>
+        </button>
+
+    </form>
+
 
       </div>
 

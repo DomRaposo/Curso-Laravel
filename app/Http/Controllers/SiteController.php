@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Categoria;
 
+use Illuminate\Support\Facades\Gate;
+
 class SiteController extends Controller
 {
      public function index()

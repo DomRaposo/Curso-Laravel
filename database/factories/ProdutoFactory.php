@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Categoria;
 use App\Models\User;
+use App\Models\Produto;
 use Illuminate\Support\Str;
 
 /**

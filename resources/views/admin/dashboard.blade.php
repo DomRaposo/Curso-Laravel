@@ -1,1 +1,4 @@
-<h1>DashBoard ADMIN</h1>
+<h1>Olá {{ auth()->user()->firstname }}</h1>
+
+
+

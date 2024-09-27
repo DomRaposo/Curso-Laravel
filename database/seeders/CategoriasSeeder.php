@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Categoria;
 use App\Models\User;
+use App\Models\Produto;
+
 
 class CategoriasSeeder extends Seeder
 {

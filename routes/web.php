@@ -6,9 +6,14 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PedidoController;
+
 
 
 Route::resource('produtos', ProdutoController::class);
+
+Route::resource('users', UserController::class);
 
 Route::get('/',[SiteController::class,'index'])->name('site.index');
 
@@ -30,4 +35,14 @@ Route::view('/login', 'login.form')->name('login.form');
 
 Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
 
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+
+Route::get('/register', [LoginController::class, 'create'])->name('login.create');
+
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
+
+Route::post('/finalizar-pedido', [CarrinhoController::class, 'finalizarPedido'])->name('site.finalizarpedido');
+
+Route::get('/pedidos', [PedidoController::class, 'listar_pedidos'])->name('pedidos');
+
+Route::get('/admin/pedidos', [PedidoController::class, 'index'])->name('admin.pedidos');

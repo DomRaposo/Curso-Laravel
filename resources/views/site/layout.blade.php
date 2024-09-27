@@ -21,6 +21,17 @@
 
   </ul>
 
+  <ul id='dropdown2' class='dropdown-content'>
+
+
+    <li><a href="{{ route('admin.dashboard') }}">DashBoard</a></li>
+    <li><a href="{{ route('login.logout') }}">Sair</a></li>
+
+
+
+
+  </ul>
+
     <nav class="black">
         <div class="nav-wrapper container">
           <a href="#" class="brand-logo center">ProjetoBar</a>
@@ -28,9 +39,26 @@
             <li><a href="{{ route('site.index') }}">Home</a></li>
             <li><a href="" class="dropdown-trigger" data-target='dropdown1'>Categorias<i class="material-icons right">expand_more</i></a></li>
             <li><a href="{{ route('site.carrinho') }}">Carrinho<span class=" badge " data-bdge-caption="">{{ \Cart::getContent()->count() }}</span></a></li>
+
+
+        </ul>
+
+
+          @auth
+          <ul id="nav-mobile" class="right">
+
+            <li><a href="" class="dropdown-trigger" data-target='dropdown2'>Olá {{ auth()->user()->firstname }}<i class="material-icons right">expand_more</i></a></li>
           </ul>
+          @else
+          <ul id="nav-mobile" class="right">
+
+            <li><a href="{{ route('login.form') }}">Login<i class="material-icons right">lock</i></a></li>
+          </ul>
+          @endauth
+
         </div>
-      </nav>
+        </nav>
+
 
 @yield('conteudo')
 
