@@ -66,11 +66,15 @@ class CarrinhoController extends Controller
         $response = Pedido::create([
             'quantidade' => $request['quantidade'],
             'preco' => $requet['preco'],
+            'nome'  =>$request['nome'],
 
             'produto_id' => $produto['id'],
             'pedido_id' => $pedido['id'],
             'user_id' => $user['id']
+
+
         ]);
+
     }
 
 
@@ -93,9 +97,6 @@ class CarrinhoController extends Controller
             $newpedido->preco = $produto->price;
             $newpedido->save();
 
-
-            /* $subtotal = $pedido->quantity * $pedido->price; // Calcula o subtotal do item
-    $totalPedido += $subtotal; // Soma o subtotal ao total do pedido */
         }
 
         // Limpe o carrinho

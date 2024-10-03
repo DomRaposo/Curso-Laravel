@@ -18,8 +18,8 @@
         @foreach($pedidos as $pedido)
 <div class="col-md-3 card mt-3 mb-3 m-3" style="width: 18rem;">
     <div class="card-header d-flex justify-content-between ">
-        <span class="badge bg-primary 2x">{{ $num++ }}</span>
-        <h5 class="mb-0">Mesa </h5>
+
+        <h5 class="mb-0">Mesa: <span class="badge bg-primary 2x">{{ $num++ }}</span> </h5>
         <span class="badge bg-warning" >Pedido {{ $pedido->pedido_id }}</span>
     </div>
     <div class="card-body w-100">
@@ -27,8 +27,12 @@
         <p class="card-text">
             <strong><i class="bi bi-person-fill"></i> {{ $pedido->usuario_nome }}</strong><br>
             <ul style="text-decoration: none;">
-                <li>{{ $pedido->nome }}</li>
 
+            @foreach($array['produtos'] as $produto)
+                @dd($array)
+                <li>{{ $produto->nome }}</li>
+
+            @endforeach
             </ul>
         </p>
         <div class="d-flex justify-content-between align-items-center">
@@ -37,13 +41,21 @@
                 <i class="bi bi-cash-coin"></i> {{ $pedido->valor_total }}
             </div>
             <div class="text-muted">
-                <i class="bi bi-clock-fill"></i> 26/09/2024
+                <i class="bi bi-clock-fill"></i> {{ $pedido->data }}
             </div>
         </div>
     </div>
     <div class="card-footer d-flex justify-content-between">
-        <button class="btn btn  text-light" style="background-color:purple;">PRONTO</button>
-        <button class="btn btn text-light"  style="background-color:green">ENTREGUE</button>
+
+        @if ( $pedido->status=='solicitado')
+        <button class="btn btn  text-light" style="background-color:rgba(11, 215, 11, 0.677); margin-right: 10px;">Status: {{ $pedido->status }}</button>
+       @elseif ($pedido->status=='cancelado')
+
+       <button class="btn btn  text-light" style="background-color:red; margin-right: 10px;">Status: {{ $pedido->status }}</button>
+
+        @endif
+
+        <button class="btn btn text-light"  style="background-color:rgb(0, 72, 255)">FINALIZAR</button>
 
     </div>
 </div>
